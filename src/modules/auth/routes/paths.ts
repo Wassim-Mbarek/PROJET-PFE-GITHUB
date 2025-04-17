@@ -3,4 +3,5 @@ export const PATH = {
   LOGIN: '/login',
   REGISTER: '/register',
   HOME: '/home',
+  REPOSITORIES: '/repositories'
 }
