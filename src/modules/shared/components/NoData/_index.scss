@@ -5,7 +5,8 @@
   justify-content: center;
   position: relative;
   animation: enter 0.5s ease-in-out;
-  margin-top: 5rem;
+  margin-top: 2rem;
+  margin: 0 auto;
   &__image {
     width: 15rem;
     aspect-ratio: 1;
@@ -34,8 +35,8 @@
     padding-left: 3rem;
     text-transform: capitalize;
     @media screen and (max-width: 1000px) {
-        font-size: 1rem;
-      }
+      font-size: 1rem;
+    }
   }
 }
 
