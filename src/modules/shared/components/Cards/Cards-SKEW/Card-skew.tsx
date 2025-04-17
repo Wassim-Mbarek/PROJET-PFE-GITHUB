@@ -4,7 +4,7 @@ interface ICardSkewProps {
   color?: 'red-yellow' | 'pink-blue' | 'green-blue'
   autoColors?: number
 }
-export default function CardSkew({ children, color , autoColors }: ICardSkewProps) {
+export default function CardSkew({ children, color, autoColors }: ICardSkewProps) {
   const generateColor = (index: number) => {
     const colors = ['red-yellow', 'pink-blue', 'green-blue']
     const colorsIndex = (index - 1) % colors.length

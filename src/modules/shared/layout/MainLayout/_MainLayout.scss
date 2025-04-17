@@ -2,10 +2,7 @@
 .main-layout {
   height: 100vh;
   @include Flex(column, start);
-
 }
-
-
 
 @keyframes drop {
   from {
