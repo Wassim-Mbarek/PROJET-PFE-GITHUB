@@ -1,6 +1,6 @@
 import CardBalance from '../../../shared/components/Cards/Card-BALANCE/Card-balance'
 import GithubIcon from '../../../shared/assets/icons/github'
-import{ supabase } from '../../../shared/utils/supabase'
+import { supabase } from '../../../shared/utils/supabase'
 import { PATH } from '../../routes/paths'
 
 const Login = () => {

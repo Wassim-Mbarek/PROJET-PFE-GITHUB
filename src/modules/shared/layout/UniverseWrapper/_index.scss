@@ -1,7 +1,7 @@
-@use './Globe/index' as * ;
+@use './Globe/index' as *;
 .universe-layout {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background: url('../modules/shared/assets/images/bg.jpeg');
   background-repeat: repeat;
   animation: animateBg infinite ease-in-out;

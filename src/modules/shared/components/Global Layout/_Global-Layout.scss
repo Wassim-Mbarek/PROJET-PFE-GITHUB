@@ -1,0 +1,65 @@
+@use '../../../shared/assets/styles/abstracts/mixins' as *;
+.global-layout-module {
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  @media only screen and (max-width: 475px) {
+    .repo-card-container {
+      width: 85%;
+    }
+  }
+  &__card {
+    @include Flex();
+    @include GlassEffect();
+    width: 100%;
+    height: 206px;
+    margin-bottom: 525px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-width: 1px;
+
+    &__header {
+      position: absolute;
+      width: 30%;
+      margin-right: 550px;
+      margin-top: 70px;
+    }
+    &__username {
+      height: 42px;
+      font-family: Nunito;
+      font-weight: 600;
+      font-size: 31px;
+      line-height: 46.44px;
+      letter-spacing: 2px;
+      vertical-align: middle;
+      color: #ffffff;
+    }
+    &__email {
+      height: 23.2px;
+      margin-left: 7px;
+      font-family: Nunito;
+      font-weight: 300;
+      font-size: 15.5px;
+      line-height: 23.22px;
+      letter-spacing: 0.39px;
+      vertical-align: middle;
+      color: #c9c8c8af;
+    }
+    &__button {
+      position: absolute;
+      width: 33px;
+      height: 33px;
+      margin-left: 95%;
+      margin-bottom: 120px;
+      border-radius: 100%;
+      background-color: rgb(229, 54, 54);
+      cursor: pointer;
+    }
+  }
+  svg {
+    fill: white;
+    width: 60%;
+    height: 60%;
+    margin-top: 5px;
+  }
+}
