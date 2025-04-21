@@ -10,7 +10,7 @@ const App = () => {
   document.body.dir = i18n?.dir()
 
   const theme = useAppSelector((state) => state.theme.mode)
-
+// Sprint-3 dedicated
   return (
     <div id={theme}>
       <Helmet>
