@@ -7,8 +7,7 @@ import NoData from '../shared/components/NoData'
 import { useNavigate } from 'react-router-dom'
 import { getConnectedUser } from '../shared/utils/common'
 
-
-const connectedUserData = await getConnectedUser();
+const connectedUserData = await getConnectedUser()
 
 const Repositories = () => {
   const navigate = useNavigate()
@@ -20,7 +19,7 @@ const Repositories = () => {
     enabled: true,
   })
 
-   //TESTING NO DATA
+  //TESTING NO DATA
   //data= []
 
   //TESTING MULTIPLE PROJECTS
