@@ -20,6 +20,7 @@ const fetchUserRepos = async (): Promise<GitHubRepo[]> => {
   if (error || !session) {
     throw new Error('Unable to retrieve Supabase session')
   }
+  // Sprint-3 dedicated
 
   const githubToken = session.provider_token
 
