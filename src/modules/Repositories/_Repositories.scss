@@ -1,8 +1,10 @@
 @use '../shared/assets/styles/abstracts/mixins' as *;
 
 .repositories-module {
+  //
   min-height: 100vh;
   width: 100%;
+
   @media only screen and (max-width: 475px) {
     .repo-card-container {
       width: 85%;
