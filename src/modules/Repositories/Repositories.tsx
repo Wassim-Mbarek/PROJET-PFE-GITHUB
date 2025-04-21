@@ -4,8 +4,14 @@ import CardSkew from '../shared/components/Cards/Cards-SKEW/Card-skew'
 import { githubService, GitHubRepo } from './services/Repositories.service'
 import { useQuery } from 'react-query'
 import NoData from '../shared/components/NoData'
+import { useNavigate } from 'react-router-dom'
+import { getConnectedUser } from '../shared/utils/common'
+
+const connectedUserData = await getConnectedUser()
 
 const Repositories = () => {
+  const navigate = useNavigate()
+
   const { data, isLoading } = useQuery<GitHubRepo[]>({
     queryKey: ['userRepos'],
     queryFn: githubService.fetchUserRepos,
@@ -16,7 +22,7 @@ const Repositories = () => {
   //TESTING NO DATA
   //data= []
 
-  //TESTING MORE MULTIPLE PROJECTS
+  //TESTING MULTIPLE PROJECTS
   /* const mockRepos: GitHubRepo[] = [
         {
           id: 101,
@@ -57,6 +63,12 @@ const Repositories = () => {
       ];
     data = mockRepos; */
 
+  const handleCardClick = (userName: string, repoName: string) => {
+    const url = `/repositories/${userName}/${repoName}/pullRequests`
+    navigate(url)
+    console.log('url', url)
+  }
+
   if (isLoading) return <p>Loading...</p>
 
   return (
@@ -68,21 +80,27 @@ const Repositories = () => {
             <ul className="repositories-module__card__projects__list">
               {data && data.length > 0 ? (
                 data.map((repo, index) => (
-                  <CardSkew key={repo.id} autoColors={index + 1}>
-                    <>
-                      <div className="repositories-module__card__projects__projectName">
-                        {repo.name}
-                      </div>
-                      <div className="repositories-module__card__projects__projectVisibility">
-                        <p className="repositories-module__card__projects__projectVisibilityContent">
-                          {repo.visibility}
-                        </p>
-                      </div>
-                    </>
-                  </CardSkew>
+                  <li
+                    key={repo.id}
+                    onClick={() => handleCardClick(connectedUserData?.user_name, repo.name)} // replace with real user
+                    style={{ cursor: 'pointer', listStyle: 'none' }}
+                  >
+                    <CardSkew autoColors={index + 1}>
+                      <>
+                        <div className="repositories-module__card__projects__projectName">
+                          {repo.name}
+                        </div>
+                        <div className="repositories-module__card__projects__projectVisibility">
+                          <p className="repositories-module__card__projects__projectVisibilityContent">
+                            {repo.visibility}
+                          </p>
+                        </div>
+                      </>
+                    </CardSkew>
+                  </li>
                 ))
               ) : (
-                <NoData title="No Projects"></NoData>
+                <NoData title="No Projects" />
               )}
             </ul>
           </div>
