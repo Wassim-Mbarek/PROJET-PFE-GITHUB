@@ -7,7 +7,8 @@ import NoData from '../shared/components/NoData'
 import { useNavigate } from 'react-router-dom'
 import { getConnectedUser } from '../shared/utils/common'
 
-const connectedUserData = await getConnectedUser()
+
+const connectedUserData = await getConnectedUser();
 
 const Repositories = () => {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ const Repositories = () => {
     enabled: true,
   })
 
-  //TESTING NO DATA
+   //TESTING NO DATA
   //data= []
 
   //TESTING MULTIPLE PROJECTS
@@ -82,7 +83,7 @@ const Repositories = () => {
                 data.map((repo, index) => (
                   <li
                     key={repo.id}
-                    onClick={() => handleCardClick(connectedUserData?.user_name, repo.name)} // replace with real user
+                    onClick={() => handleCardClick(connectedUserData?.user_name, repo.name)}
                     style={{ cursor: 'pointer', listStyle: 'none' }}
                   >
                     <CardSkew autoColors={index + 1}>
