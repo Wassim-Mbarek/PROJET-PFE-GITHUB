@@ -31,6 +31,12 @@ const routes: RouteConfig[] = [
     component: lazy(() => import('../../Repositories/Repositories')),
     layout: (props: any) => <UniverseWrapper {...props} />,
   },
+  {
+    exact: true,
+    path: PATH.PULL_REQUESTS,
+    component: lazy(() => import('../../Pull-Requests/Pull-Requests')),
+    layout: (props: any) => <UniverseWrapper {...props} />,
+  },
 ]
 
 export default routes
