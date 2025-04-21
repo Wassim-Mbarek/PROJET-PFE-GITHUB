@@ -4,4 +4,5 @@ export const PATH = {
   REGISTER: '/register',
   HOME: '/home',
   REPOSITORIES: '/repositories',
+  PULL_REQUESTS: '/repositories/:userName/:repoName/pullRequests',
 }
