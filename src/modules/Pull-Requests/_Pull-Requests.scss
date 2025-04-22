@@ -1,15 +1,19 @@
 @use '../shared/assets/styles/abstracts/mixins' as *;
 
 .ant-collapse {
-  width: 100%;
+  width: 92vw;
   border: 0;
   border-radius: 0.5rem;
   overflow: hidden;
+  margin-left: 60px;
+  margin-top: 20px;
+
   &-header {
     padding: 0.5rem !important;
     align-items: center !important;
   }
 }
+
 .ant-collapse-item {
   width: 100%;
   padding: 1rem;
@@ -17,19 +21,118 @@
   border-radius: 0;
   gap: 0.5rem;
   background: rgba(24, 24, 24, 0.531);
-  &:last-child > .ant-collapse-content {
+
+  &:last-child>.ant-collapse-content {
     border-radius: 0.5rem;
   }
 }
+
 .ant-collapse-arrow {
+  width: 20px;
+
   svg path {
     fill: white;
   }
 }
+
 .ant-collapse-content {
   border-radius: 0.5rem;
-  background: rgba(58, 58, 58, 0.55);
+  background-color: rgba(58, 58, 58, 0.55) !important;
   border: 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+.pull-request-label {
+  display: flex;
+}
+
+.pull-request-left-container {
+  &__head {
+    display: flex;
+  }
+
+  left: 100%;
+}
+
+.pull-request-right-container {
+  margin-left: 350px;
+
+  &__head {
+    display: flex;
+    padding-bottom: 5px;
+  }
+}
+
+.pull-request-title {
+  width: 50vw;
+  height: 20px;
+  top: 31.11px;
+  left: 52.53px;
+  font-family: Nunito;
+  font-weight: 800;
+  font-size: 13.8px;
+  line-height: 20.64px;
+  letter-spacing: 0.34px;
+  vertical-align: middle;
+  color: #ffffff;
+  padding-bottom: 33px;
+  display: flex;
+}
+
+.pull-request-merge-icon {
+  width: 22px;
+  height: 23px;
+}
+
+.pull-request-date {
+  width: 210px;
+  height: 18px;
+  top: 61.14px;
+  left: 52.53px;
+  font-family: Nunito;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18.06px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  color: #C8C7C7;
+}
+
+.pull-request-state-container {
+  display: flex;
+  margin-left: 100px;
+}
+
+.pull-request-state {
+  width: 45px;
+  height: 20px;
+  margin-top: 3px;
+  font-family: Nunito;
+  font-weight: 600;
+  font-size: 13.8px;
+  line-height: 20.64px;
+  letter-spacing: 0.34px;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #008000;
+
+  &__icon {
+    width: 24;
+    height: 24px;
+    top: 29.36px;
+    left: 1764.26px;
+  }
+}
+
+.pull-request-user-avatar {
+  width: 31px;
+  height: 31px;
+  top: 26.78px;
+  left: 1608.36px;
+  border-width: 1px;
+  border-radius: 15.48px;
+  border: 1px solid #757575
 }
 
 .pull-requests-module {
@@ -50,7 +153,6 @@
     margin-right: 23.42px;
 
     &__title {
-      //width: 156.8415069580078px;
       height: 38.70000076293945px;
       margin-top: 70px;
       margin-left: 80px;
@@ -62,54 +164,6 @@
       vertical-align: middle;
       text-transform: capitalize;
       color: #ffffff;
-    }
-
-    &__projects {
-      //background-color: red;
-      position: absolute;
-      width: 80vw;
-      //height: 100%;
-      top: 120px;
-      margin-left: 220px;
-
-      &__list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      &__projectName {
-        top: 18.92px;
-        font-family: Nunito;
-        font-weight: 600;
-        font-size: 17.2px;
-        line-height: 25.8px;
-        letter-spacing: 0.43px;
-        vertical-align: middle;
-        color: #ffffff;
-        text-align: center;
-      }
-
-      &__projectVisibility {
-        padding-top: 2px;
-        width: 75px;
-        margin-top: 30px;
-        margin-left: 100px;
-        border-radius: 17.2px;
-        background: linear-gradient(90deg, #000000 45%, #5d29e3 100%);
-      }
-
-      &__projectVisibilityContent {
-        margin-left: 17.19px;
-        font-family: Nunito;
-        font-weight: 600;
-        font-size: 13.8px;
-        line-height: 20.64px;
-        letter-spacing: 0.34px;
-        vertical-align: middle;
-        text-transform: capitalize;
-        color: #ffffff;
-      }
     }
   }
 }
