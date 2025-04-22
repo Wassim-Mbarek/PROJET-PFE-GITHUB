@@ -1,0 +1,115 @@
+@use '../shared/assets/styles/abstracts/mixins' as *;
+
+.ant-collapse {
+  width: 100%;
+  border: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  &-header {
+    padding: 0.5rem !important;
+    align-items: center !important;
+  }
+}
+.ant-collapse-item {
+  width: 100%;
+  padding: 1rem;
+  @include GlassEffect();
+  border-radius: 0;
+  gap: 0.5rem;
+  background: rgba(24, 24, 24, 0.531);
+  &:last-child > .ant-collapse-content {
+    border-radius: 0.5rem;
+  }
+}
+.ant-collapse-arrow {
+  svg path {
+    fill: white;
+  }
+}
+.ant-collapse-content {
+  border-radius: 0.5rem;
+  background: rgba(58, 58, 58, 0.55);
+  border: 0;
+}
+
+.pull-requests-module {
+  min-height: 100vh;
+  width: 100%;
+
+  @media only screen and (max-width: 475px) {
+    .repo-card-container {
+      width: 85%;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    width: 100%;
+    height: 511px;
+    top: 205.97px;
+    margin-right: 23.42px;
+
+    &__title {
+      //width: 156.8415069580078px;
+      height: 38.70000076293945px;
+      margin-top: 70px;
+      margin-left: 80px;
+      font-family: Nunito;
+      font-weight: 700;
+      font-size: 25.8px;
+      line-height: 38.7px;
+      letter-spacing: 0.64px;
+      vertical-align: middle;
+      text-transform: capitalize;
+      color: #ffffff;
+    }
+
+    &__projects {
+      //background-color: red;
+      position: absolute;
+      width: 80vw;
+      //height: 100%;
+      top: 120px;
+      margin-left: 220px;
+
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      &__projectName {
+        top: 18.92px;
+        font-family: Nunito;
+        font-weight: 600;
+        font-size: 17.2px;
+        line-height: 25.8px;
+        letter-spacing: 0.43px;
+        vertical-align: middle;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      &__projectVisibility {
+        padding-top: 2px;
+        width: 75px;
+        margin-top: 30px;
+        margin-left: 100px;
+        border-radius: 17.2px;
+        background: linear-gradient(90deg, #000000 45%, #5d29e3 100%);
+      }
+
+      &__projectVisibilityContent {
+        margin-left: 17.19px;
+        font-family: Nunito;
+        font-weight: 600;
+        font-size: 13.8px;
+        line-height: 20.64px;
+        letter-spacing: 0.34px;
+        vertical-align: middle;
+        text-transform: capitalize;
+        color: #ffffff;
+      }
+    }
+  }
+}
