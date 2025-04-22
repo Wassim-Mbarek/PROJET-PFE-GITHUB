@@ -56,7 +56,6 @@ export interface Commit {
   } | null
 }
 
-
 const buildEndpoint = (template: string, params: Record<string, string>): string => {
   return template.replace(/:([a-zA-Z]+)/g, (_, key) => params[key])
 }
@@ -65,7 +64,7 @@ export const getPullRequests = async (user: string, repo: string): Promise<PullR
   const endpoint = buildEndpoint(endpoints.getPullRequests, { user, repo })
   console.log('endpoint', endpoint)
 
-  const response = await githubApi.get<PullRequest[]>(endpoint)  
+  const response = await githubApi.get<PullRequest[]>(endpoint)
   return response.data
 }
 
@@ -81,7 +80,7 @@ export const getPullRequestCommits = async (
   })
 
   const response = await githubApi.get<Commit[]>(endpoint)
-  console.log('commits', response.data);
-  
+  console.log('commits', response.data)
+
   return response.data
 }

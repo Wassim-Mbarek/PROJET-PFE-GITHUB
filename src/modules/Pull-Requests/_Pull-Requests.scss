@@ -22,7 +22,7 @@
   gap: 0.5rem;
   background: rgba(24, 24, 24, 0.531);
 
-  &:last-child>.ant-collapse-content {
+  &:last-child > .ant-collapse-content {
     border-radius: 0.5rem;
   }
 }
@@ -96,7 +96,7 @@
   line-height: 18.06px;
   letter-spacing: 0.3px;
   vertical-align: middle;
-  color: #C8C7C7;
+  color: #c8c7c7;
 }
 
 .pull-request-state-container {
@@ -132,7 +132,7 @@
   left: 1608.36px;
   border-width: 1px;
   border-radius: 15.48px;
-  border: 1px solid #757575
+  border: 1px solid #757575;
 }
 
 .pull-requests-module {
