@@ -60,8 +60,7 @@ const PullRequestList: React.FC = () => {
                       <div className="pull-request-title">
                         {pull.title}
                         <div className="pull-request-merge-icon">
-                          {' '}
-                          <MergeIcon></MergeIcon>{' '}
+                          <MergeIcon></MergeIcon>
                         </div>
                       </div>
                     </div>
@@ -76,7 +75,14 @@ const PullRequestList: React.FC = () => {
                       <img className="pull-request-user-avatar" src={pull.user?.avatar_url} />
 
                       <div className="pull-request-state-container">
-                        <div className="pull-request-state">{pull.state}</div>
+                        <div
+                          className="pull-request-state"
+                          style={{ color: pull.state === 'open' ? '#008000' : '#ff0000' }}
+                        >
+                          {pull.state}
+                        </div>
+
+
 
                         <img
                           className="pull-request-state__icon"
