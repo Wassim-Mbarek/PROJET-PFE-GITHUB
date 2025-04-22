@@ -14,7 +14,7 @@ export default function MergeIcon() {
         userSelect: 'none',
         verticalAlign: 'text-bottom',
         overflow: 'visible',
-        marginLeft : '0.5rem'
+        marginLeft: '0.5rem',
       }}
     >
       <path

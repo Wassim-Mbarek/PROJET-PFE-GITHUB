@@ -1,8 +1,12 @@
 .avatar {
-  width: 1.8rem;
+  position: absolute;
+  width: 181px;
+  height: 175px;
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
+  margin-right: 1250px;
+  margin-top: 130px;
   &--src {
     width: 100%;
     aspect-ratio: 1;

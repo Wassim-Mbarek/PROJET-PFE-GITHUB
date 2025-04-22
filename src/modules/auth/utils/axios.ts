@@ -16,7 +16,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     const { access_token } = getTokens()
-    console.log(access_token , 'token')
+    console.log(access_token, 'token')
     if (access_token) {
       config.headers['Authorization'] = `Bearer ${access_token}`
     }
@@ -40,7 +40,7 @@ axiosInstance.interceptors.response.use(
             Authorization: `Bearer ${refresh_token}`,
           },
         })
-  
+
         return axiosInstance(previousRequest)
       } catch (err) {
         clearTokens()

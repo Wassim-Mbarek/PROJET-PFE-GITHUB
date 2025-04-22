@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 40px 0;
- animation: enter 0.5s ease-in-out;
+  animation: enter 0.5s ease-in-out;
   .box {
     position: relative;
     width: 16.5rem;
@@ -14,7 +14,7 @@
     align-items: center;
     transition: 0.5s;
     &__red-yellow:before,
-    &__red-yellow:after{
+    &__red-yellow:after {
       background: linear-gradient(315deg, #ffbc00, #ff0058);
     }
     &__pink-blue:before,
@@ -22,7 +22,7 @@
       background: linear-gradient(315deg, #03a9f4, #ff0058);
     }
     &__green-blue:before,
-    &__green-blue:after  {
+    &__green-blue:after {
       background: linear-gradient(315deg, #4dff03, #00d0ff);
     }
     &:hover span::after {

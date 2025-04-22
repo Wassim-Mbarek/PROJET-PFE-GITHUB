@@ -17,10 +17,10 @@
   @media screen and (max-width: 1000px) {
     height: 12rem;
   }
-  &__sign-out{
-    position: absolute ;
-    top : 1rem;
-    right: 1rem
+  &__sign-out {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
   &__credentials {
     @include Flex();

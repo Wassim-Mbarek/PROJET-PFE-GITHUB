@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { clearTokens} from '../utils/token'
+import { clearTokens } from '../utils/token'
 import { login, logout } from './authThunk'
 
 export interface AuthState {

@@ -10,14 +10,52 @@
   }
   &__card {
     @include Flex(column, space-between, center);
-    padding: 2rem;
+    padding: 1rem;
     width: 20rem;
-    height: 30rem;
     position: relative;
-    border: 1px solid black;
-    border-radius: 1rem;
     &__title {
+      height: 77.4px;
+      color: #ffffff;
       font-size: 2.5rem;
+    }
+    &__subtitle {
+      height: 42.1px;
+      color: #ffffff;
+      font-size: 13.8px;
+      font-family: Nunito;
+      font-weight: 300;
+      font-size: 13.8px;
+      line-height: 20.64px;
+      letter-spacing: 0.34px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    &__button {
+      margin-top: 250px;
+      width: 204.55px;
+      height: 42.9900016784668px;
+      top: 420.42px;
+      left: 112.72px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(
+        84deg,
+        #000000 0%,
+        rgba(203, 203, 203, 0.267755) 99.98%,
+        rgba(255, 255, 255, 0.08) 99.99%,
+        #000000 100%
+      );
+
+      &__text {
+        color: #ffffff;
+      }
+      &__icon {
+        width: 25.79px;
+        height: 25.79px;
+      }
     }
   }
 }
