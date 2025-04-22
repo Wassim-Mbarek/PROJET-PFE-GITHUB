@@ -82,8 +82,6 @@ const PullRequestList: React.FC = () => {
                           {pull.state}
                         </div>
 
-
-
                         <img
                           className="pull-request-state__icon"
                           src={pull.state === 'open' ? verifieIcon : rejectedIcon}
