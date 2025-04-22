@@ -1,73 +1,73 @@
 @use '../shared/assets/styles/abstracts/mixins' as *;
 
 .commits-module {
-    width: 100vw;
+  width: 100vw;
 
-    @media only screen and (max-width: 475px) {
-        .repo-card-container {
-            width: 85%;
-        }
+  @media only screen and (max-width: 475px) {
+    .repo-card-container {
+      width: 85%;
+    }
+  }
+
+  &__title-container {
+    width: 129px;
+    height: 27px;
+    top: 16px;
+    left: 16px;
+    border-radius: 5.16px;
+    background: #e79614;
+
+    &__title {
+      font-family: Nunito;
+      font-weight: 700;
+      font-size: 13.8px;
+      line-height: 20.64px;
+      letter-spacing: 0.34px;
+      vertical-align: middle;
+      text-transform: capitalize;
+      color: #ffffff;
+      text-align: center;
+      padding-top: 3px;
+    }
+  }
+
+  &__commits-container {
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  &__list {
+    display: flex;
+    padding-bottom: 8px;
+
+    &__commit-avatar {
+      width: 31px;
+      height: 31px;
+      border-radius: 15.48px;
     }
 
-    &__title-container {
-        width: 129px;
-        height: 27px;
-        top: 16px;
-        left: 16px;
-        border-radius: 5.16px;
-        background: #e79614;
-
-        &__title {
-            font-family: Nunito;
-            font-weight: 700;
-            font-size: 13.8px;
-            line-height: 20.64px;
-            letter-spacing: 0.34px;
-            vertical-align: middle;
-            text-transform: capitalize;
-            color: #ffffff;
-            text-align: center;
-            padding-top: 3px;
-        }
+    &__commit-message {
+      width: 70vw;
+      font-family: Nunito;
+      font-weight: 700;
+      font-size: 13.8px;
+      line-height: 20.64px;
+      letter-spacing: 0.34px;
+      vertical-align: middle;
+      color: #ffffff !important;
+      margin-left: 15px;
+      margin-top: 5px;
     }
 
-    &__commits-container {
-        margin-left: 15px;
-        margin-top: 20px;
+    &__commit-date {
+      height: 18px;
+      font-family: Nunito;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18.06px;
+      letter-spacing: 0.3px;
+      vertical-align: middle;
+      color: #a7a7a7;
     }
-
-    &__list {
-        display: flex;
-        padding-bottom: 8px;
-
-        &__commit-avatar {
-            width: 31px;
-            height: 31px;
-            border-radius: 15.48px;
-        }
-
-        &__commit-message {
-            width: 70vw;
-            font-family: Nunito;
-            font-weight: 700;
-            font-size: 13.8px;
-            line-height: 20.64px;
-            letter-spacing: 0.34px;
-            vertical-align: middle;
-            color: #ffffff !important;
-            margin-left: 15px;
-            margin-top: 5px;
-        }
-
-        &__commit-date {
-            height: 18px;
-            font-family: Nunito;
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 18.06px;
-            letter-spacing: 0.3px;
-            vertical-align: middle;
-            color: #a7a7a7;
-        }
-    }
+  }
 }
