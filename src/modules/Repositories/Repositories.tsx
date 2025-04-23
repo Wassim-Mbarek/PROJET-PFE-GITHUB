@@ -6,6 +6,7 @@ import { useQuery } from 'react-query'
 import NoData from '../shared/components/NoData'
 import { useNavigate } from 'react-router-dom'
 import { getConnectedUser } from '../shared/utils/common'
+import LoadingScreen from '../shared/components/Loading'
 
 const connectedUserData = await getConnectedUser()
 
@@ -69,7 +70,8 @@ const Repositories = () => {
     console.log('url', url)
   }
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <LoadingScreen></LoadingScreen>
+
 
   return (
     <div className="repositories-module">

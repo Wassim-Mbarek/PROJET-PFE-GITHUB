@@ -14,6 +14,7 @@ import { fDateTime } from '../shared/utils/formatTime'
 import verifieIcon from '../shared/assets/images/verifie.png'
 import rejectedIcon from '../shared/assets/images/rejected.png'
 import MergeIcon from '../shared/assets/icons/merge'
+import LoadingScreen from '../shared/components/Loading'
 
 const PullRequestList: React.FC = () => {
   const { userName, repoName } = useParams<{ userName: string; repoName: string }>()
@@ -40,7 +41,8 @@ const PullRequestList: React.FC = () => {
     }
   }
 
-  if (isLoading) return <p>Loading pull requests...</p>
+  if (isLoading) return <LoadingScreen></LoadingScreen>
+
   if (error) return <p>Error fetching pull requests: {error.message}</p>
 
   return (
