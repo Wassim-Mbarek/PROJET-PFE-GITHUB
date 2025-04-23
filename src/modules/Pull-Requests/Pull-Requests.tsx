@@ -21,10 +21,7 @@ const PullRequestList: React.FC = () => {
   const { userName, repoName } = useParams<{ userName: string; repoName: string }>()
   const queryClient = useQueryClient()
 
-  const {
-    data: pullRequests,
-    isLoading,
-  } = useQuery<PullRequest[], Error>(
+  const { data: pullRequests, isLoading } = useQuery<PullRequest[], Error>(
     ['pullRequests', userName, repoName],
     () => getPullRequests(userName!, repoName!),
     {
@@ -47,67 +44,67 @@ const PullRequestList: React.FC = () => {
 
   return (
     <ScrollContainer>
-    <GlobalLayout>
-      <div className="pull-requests-module__card">
-        <div className="pull-requests-module__card__title">{repoName}</div>
+      <GlobalLayout>
+        <div className="pull-requests-module__card">
+          <div className="pull-requests-module__card__title">{repoName}</div>
 
-        {pullRequests && pullRequests.length > 0 ? (
-          <Collapse
-            onChange={handleCollapseChange}
-            items={pullRequests.map((pull) => ({
-              key: `${pull.number}`,
-              label: (
-                <div className="pull-request-label">
-                  <div className="pull-request-left-container">
-                    <div className="pull-request-left-container__head">
-                      <div className="pull-request-title">
-                        {pull.title}
-                        <div className="pull-request-merge-icon">
-                          <MergeIcon></MergeIcon>
+          {pullRequests && pullRequests.length > 0 ? (
+            <Collapse
+              onChange={handleCollapseChange}
+              items={pullRequests.map((pull) => ({
+                key: `${pull.number}`,
+                label: (
+                  <div className="pull-request-label">
+                    <div className="pull-request-left-container">
+                      <div className="pull-request-left-container__head">
+                        <div className="pull-request-title">
+                          {pull.title}
+                          <div className="pull-request-merge-icon">
+                            <MergeIcon></MergeIcon>
+                          </div>
                         </div>
+                      </div>
+
+                      <div className="pull-request-date">
+                        Created At : {fDateTime(pull.created_at, 'yyyy-MM-dd HH:mm:ss')}
                       </div>
                     </div>
 
-                    <div className="pull-request-date">
-                      Created At : {fDateTime(pull.created_at, 'yyyy-MM-dd HH:mm:ss')}
-                    </div>
-                  </div>
+                    <div className="pull-request-right-container">
+                      <div className="pull-request-right-container__head">
+                        <img className="pull-request-user-avatar" src={pull.user?.avatar_url} />
 
-                  <div className="pull-request-right-container">
-                    <div className="pull-request-right-container__head">
-                      <img className="pull-request-user-avatar" src={pull.user?.avatar_url} />
+                        <div className="pull-request-state-container">
+                          <div
+                            className="pull-request-state"
+                            style={{ color: pull.state === 'open' ? '#008000' : '#ff0000' }}
+                          >
+                            {pull.state}
+                          </div>
 
-                      <div className="pull-request-state-container">
-                        <div
-                          className="pull-request-state"
-                          style={{ color: pull.state === 'open' ? '#008000' : '#ff0000' }}
-                        >
-                          {pull.state}
+                          <img
+                            className="pull-request-state__icon"
+                            src={pull.state === 'open' ? verifieIcon : rejectedIcon}
+                          />
                         </div>
+                      </div>
 
-                        <img
-                          className="pull-request-state__icon"
-                          src={pull.state === 'open' ? verifieIcon : rejectedIcon}
-                        />
+                      <div className="pull-request-date">
+                        Updated At : {fDateTime(pull.updated_at, 'yyyy-MM-dd HH:mm:ss')}
                       </div>
                     </div>
-
-                    <div className="pull-request-date">
-                      Updated At : {fDateTime(pull.updated_at, 'yyyy-MM-dd HH:mm:ss')}
-                    </div>
                   </div>
-                </div>
-              ),
-              children: (
-                <Commits userName={userName!} repoName={repoName!} pullNumber={pull.number} />
-              ),
-            }))}
-          />
-        ) : (
-          <NoData title={`No Pull Requests in ${repoName}`} />
-        )}
-      </div>
-    </GlobalLayout>
+                ),
+                children: (
+                  <Commits userName={userName!} repoName={repoName!} pullNumber={pull.number} />
+                ),
+              }))}
+            />
+          ) : (
+            <NoData title={`No Pull Requests in ${repoName}`} />
+          )}
+        </div>
+      </GlobalLayout>
     </ScrollContainer>
   )
 }

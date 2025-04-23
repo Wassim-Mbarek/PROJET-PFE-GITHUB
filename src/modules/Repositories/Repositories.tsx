@@ -25,7 +25,7 @@ const Repositories = () => {
   //data= []
 
   //TESTING MULTIPLE PROJECTS
-/*   const mockRepos: GitHubRepo[] = [
+  /*   const mockRepos: GitHubRepo[] = [
         {
           id: 101,
           name: "portfolio-website",
@@ -99,7 +99,7 @@ const Repositories = () => {
           language: "TypeScript",
         },
       ]; */
-   // data = mockRepos;
+  // data = mockRepos;
 
   const handleCardClick = (userName: string, repoName: string) => {
     const url = `/repositories/${userName}/${repoName}/pullRequests`
@@ -113,41 +113,41 @@ const Repositories = () => {
 
   return (
     <ScrollContainer>
-    <div className="repositories-module">
-      <GlobalLayout>
-        <div className="repositories-module__card">
-          <div className="repositories-module__card__title">Repositories</div>
-          <div className="repositories-module__card__projects">
-            <ul className="repositories-module__card__projects__list">
-              {data && data.length > 0 ? (
-                data.map((repo, index) => (
-                  <li
-                    key={repo.id}
-                    onClick={() => handleCardClick(connectedUserData?.user_name, repo.name)}
-                    style={{ cursor: 'pointer', listStyle: 'none' }}
-                  >
-                    <CardSkew autoColors={index + 1}>
-                      <>
-                        <div className="repositories-module__card__projects__projectName">
-                          {repo.name}
-                        </div>
-                        <div className="repositories-module__card__projects__projectVisibility">
-                          <p className="repositories-module__card__projects__projectVisibilityContent">
-                            {repo.visibility}
-                          </p>
-                        </div>
-                      </>
-                    </CardSkew>
-                  </li>
-                ))
-              ) : (
-                <NoData title="No Projects" />
-              )}
-            </ul>
+      <div className="repositories-module">
+        <GlobalLayout>
+          <div className="repositories-module__card">
+            <div className="repositories-module__card__title">Repositories</div>
+            <div className="repositories-module__card__projects">
+              <ul className="repositories-module__card__projects__list">
+                {data && data.length > 0 ? (
+                  data.map((repo, index) => (
+                    <li
+                      key={repo.id}
+                      onClick={() => handleCardClick(connectedUserData?.user_name, repo.name)}
+                      style={{ cursor: 'pointer', listStyle: 'none' }}
+                    >
+                      <CardSkew autoColors={index + 1}>
+                        <>
+                          <div className="repositories-module__card__projects__projectName">
+                            {repo.name}
+                          </div>
+                          <div className="repositories-module__card__projects__projectVisibility">
+                            <p className="repositories-module__card__projects__projectVisibilityContent">
+                              {repo.visibility}
+                            </p>
+                          </div>
+                        </>
+                      </CardSkew>
+                    </li>
+                  ))
+                ) : (
+                  <NoData title="No Projects" />
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
-      </GlobalLayout>
-    </div>
+        </GlobalLayout>
+      </div>
     </ScrollContainer>
   )
 }
