@@ -72,7 +72,6 @@ const Repositories = () => {
 
   if (isLoading) return <LoadingScreen></LoadingScreen>
 
-
   return (
     <div className="repositories-module">
       <GlobalLayout>
