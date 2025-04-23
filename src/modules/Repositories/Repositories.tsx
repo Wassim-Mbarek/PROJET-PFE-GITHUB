@@ -7,13 +7,14 @@ import NoData from '../shared/components/NoData'
 import { useNavigate } from 'react-router-dom'
 import { getConnectedUser } from '../shared/utils/common'
 import LoadingScreen from '../shared/components/Loading'
+import ScrollContainer from '../shared/components/ScrollContainer'
 
 const connectedUserData = await getConnectedUser()
 
 const Repositories = () => {
   const navigate = useNavigate()
 
-  const { data, isLoading } = useQuery<GitHubRepo[]>({
+  let { data, isLoading } = useQuery<GitHubRepo[]>({
     queryKey: ['userRepos'],
     queryFn: githubService.fetchUserRepos,
     cacheTime: 1,
@@ -24,7 +25,7 @@ const Repositories = () => {
   //data= []
 
   //TESTING MULTIPLE PROJECTS
-  /* const mockRepos: GitHubRepo[] = [
+/*   const mockRepos: GitHubRepo[] = [
         {
           id: 101,
           name: "portfolio-website",
@@ -61,8 +62,44 @@ const Repositories = () => {
           stargazers_count: 12,
           language: "TypeScript",
         },
-      ];
-    data = mockRepos; */
+        {
+          id: 105,
+          name: "github-api-wrapper",
+          html_url: "https://github.com/username/github-api-wrapper",
+          visibility: "public",
+          description: "Custom wrapper around GitHub API using Axios",
+          stargazers_count: 12,
+          language: "TypeScript",
+        },
+        {
+          id: 106,
+          name: "github-api-wrapper",
+          html_url: "https://github.com/username/github-api-wrapper",
+          visibility: "public",
+          description: "Custom wrapper around GitHub API using Axios",
+          stargazers_count: 12,
+          language: "TypeScript",
+        },
+        {
+          id: 107,
+          name: "github-api-wrapper",
+          html_url: "https://github.com/username/github-api-wrapper",
+          visibility: "public",
+          description: "Custom wrapper around GitHub API using Axios",
+          stargazers_count: 12,
+          language: "TypeScript",
+        },
+        {
+          id: 108,
+          name: "github-api-wrapper",
+          html_url: "https://github.com/username/github-api-wrapper",
+          visibility: "public",
+          description: "Custom wrapper around GitHub API using Axios",
+          stargazers_count: 12,
+          language: "TypeScript",
+        },
+      ]; */
+   // data = mockRepos;
 
   const handleCardClick = (userName: string, repoName: string) => {
     const url = `/repositories/${userName}/${repoName}/pullRequests`
@@ -70,9 +107,12 @@ const Repositories = () => {
     console.log('url', url)
   }
 
-  if (isLoading) return <LoadingScreen></LoadingScreen>
+  if (isLoading) {
+    return <LoadingScreen></LoadingScreen>
+  }
 
   return (
+    <ScrollContainer>
     <div className="repositories-module">
       <GlobalLayout>
         <div className="repositories-module__card">
@@ -108,6 +148,7 @@ const Repositories = () => {
         </div>
       </GlobalLayout>
     </div>
+    </ScrollContainer>
   )
 }
 

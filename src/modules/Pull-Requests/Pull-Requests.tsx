@@ -15,6 +15,7 @@ import verifieIcon from '../shared/assets/images/verifie.png'
 import rejectedIcon from '../shared/assets/images/rejected.png'
 import MergeIcon from '../shared/assets/icons/merge'
 import LoadingScreen from '../shared/components/Loading'
+import ScrollContainer from '../shared/components/ScrollContainer'
 
 const PullRequestList: React.FC = () => {
   const { userName, repoName } = useParams<{ userName: string; repoName: string }>()
@@ -23,7 +24,6 @@ const PullRequestList: React.FC = () => {
   const {
     data: pullRequests,
     isLoading,
-    error,
   } = useQuery<PullRequest[], Error>(
     ['pullRequests', userName, repoName],
     () => getPullRequests(userName!, repoName!),
@@ -41,11 +41,12 @@ const PullRequestList: React.FC = () => {
     }
   }
 
-  if (isLoading) return <LoadingScreen></LoadingScreen>
-
-  if (error) return <p>Error fetching pull requests: {error.message}</p>
+  if (isLoading) {
+    return <LoadingScreen></LoadingScreen>
+  }
 
   return (
+    <ScrollContainer>
     <GlobalLayout>
       <div className="pull-requests-module__card">
         <div className="pull-requests-module__card__title">{repoName}</div>
@@ -107,6 +108,7 @@ const PullRequestList: React.FC = () => {
         )}
       </div>
     </GlobalLayout>
+    </ScrollContainer>
   )
 }
 
