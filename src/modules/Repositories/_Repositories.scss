@@ -33,15 +33,12 @@
     }
 
     &__projects {
-      //background-color: red;
-      position: absolute;
-      width: 80vw;
-      //height: 100%;
-      top: 120px;
-      margin-left: 220px;
+      height: 100%;
 
       &__list {
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
         gap: 1rem;
       }

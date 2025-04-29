@@ -1,9 +1,10 @@
-import './_Commits.scss'
 import { useQuery } from 'react-query'
-import { Commit, getPullRequestCommits } from './services/Pull-Requests.service'
-import { Spin } from 'antd'
-import { fDateTime } from '../shared/utils/formatTime'
 import commitIcon from '../shared/assets/images/commit.png'
+import LoadingScreen from '../shared/components/Loading'
+import { fDateTime } from '../shared/utils/formatTime'
+import './_Commits.scss'
+import { Commit, getPullRequestCommits } from './services/Pull-Requests.service'
+import * as dayjs from 'dayjs'
 
 interface CommitProps {
   userName: string
@@ -12,13 +13,12 @@ interface CommitProps {
 }
 
 export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber }) => {
-  const { data, isLoading, error } = useQuery<Commit[], Error>(
+  const { data, isLoading } = useQuery<Commit[], Error>(
     ['commits', userName, repoName, pullNumber],
     () => getPullRequestCommits(userName, repoName, pullNumber)
   )
 
-  if (isLoading) return <Spin size="small" />
-  if (error) return <p>Error loading commits</p>
+  if (isLoading) return <LoadingScreen size="s" />
 
   return (
     <div className="commits-module">
@@ -31,7 +31,7 @@ export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber 
             <img className="commits-module__list__commit-avatar" src={commitIcon} />
             <p className="commits-module__list__commit-message">{commit.commit.message}</p>
             <div className="commits-module__list__commit-date">
-              Created At : {fDateTime(commit.commit.author.date, 'yyyy-MM-dd HH:mm:ss')}
+              Created At : {dayjs(commit.commit.author.date).format('yyyy-MM-dd HH:mm:ss')}
             </div>
           </div>
         ))}

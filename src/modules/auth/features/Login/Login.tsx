@@ -1,14 +1,15 @@
 import CardBalance from '../../../shared/components/Cards/Card-BALANCE/Card-balance'
 import GithubIcon from '../../../shared/assets/icons/github'
 import { supabase } from '../../../shared/utils/supabase'
-import { PATH } from '../../routes/paths'
+import { PATH } from '../../../shared/routes/paths'
 
 const Login = () => {
+  const location = window.location.origin
   async function signInWithGithub() {
     await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: `http://localhost:3000${PATH.REPOSITORIES}`,
+        redirectTo: `${location}${PATH.LOGIN}`,
       },
     })
   }
