@@ -45,7 +45,7 @@ const PullRequestList: React.FC = () => {
   return (
     <MainContainer
       linkProps={{
-        title: 'Repositories',
+        title: repoName || 'Repositories',
         links: [
           { href: PATH.REPOSITORIES, name: 'Repositories' },
           { href: '', name: 'Pull Requests' },
