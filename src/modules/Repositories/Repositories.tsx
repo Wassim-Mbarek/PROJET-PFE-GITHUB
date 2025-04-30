@@ -5,7 +5,7 @@ import LoadingScreen from '../shared/components/Loading'
 import NoData from '../shared/components/NoData'
 import { getConnectedUser } from '../shared/utils/common'
 import './_Repositories.scss'
-import { GitHubRepo, githubService } from './services/Repositories.service'
+import { githubService } from './services/Repositories.service'
 import MainContainer from '../shared/layout/MainContainer/MainContainer'
 import { PATH } from '../shared/routes/paths'
 
@@ -20,86 +20,6 @@ const Repositories = () => {
     cacheTime: 1,
     enabled: true,
   })
-
-  //TESTING NO DATA
-  //data= []
-
-  //TESTING MULTIPLE PROJECTS
-  /*   const mockRepos: GitHubRepo[] = [
-        {
-          id: 101,
-          name: "portfolio-website",
-          html_url: "https://github.com/username/portfolio-website",
-          visibility: "public",
-          description: "My personal portfolio built with React and TypeScript",
-          stargazers_count: 24,
-          language: "TypeScript",
-        },
-        {
-          id: 102,
-          name: "todo-app",
-          html_url: "https://github.com/username/todo-app",
-          visibility: "public",
-          description: "A simple todo app with React and Zustand",
-          stargazers_count: 17,
-          language: "JavaScript",
-        },
-        {
-          id: 103,
-          name: "nextjs-blog",
-          html_url: "https://github.com/username/nextjs-blog",
-          visibility: "private",
-          description: "Blog platform using Next.js and Markdown",
-          stargazers_count: 5,
-          language: "JavaScript",
-        },
-        {
-          id: 104,
-          name: "github-api-wrapper",
-          html_url: "https://github.com/username/github-api-wrapper",
-          visibility: "public",
-          description: "Custom wrapper around GitHub API using Axios",
-          stargazers_count: 12,
-          language: "TypeScript",
-        },
-        {
-          id: 105,
-          name: "github-api-wrapper",
-          html_url: "https://github.com/username/github-api-wrapper",
-          visibility: "public",
-          description: "Custom wrapper around GitHub API using Axios",
-          stargazers_count: 12,
-          language: "TypeScript",
-        },
-        {
-          id: 106,
-          name: "github-api-wrapper",
-          html_url: "https://github.com/username/github-api-wrapper",
-          visibility: "public",
-          description: "Custom wrapper around GitHub API using Axios",
-          stargazers_count: 12,
-          language: "TypeScript",
-        },
-        {
-          id: 107,
-          name: "github-api-wrapper",
-          html_url: "https://github.com/username/github-api-wrapper",
-          visibility: "public",
-          description: "Custom wrapper around GitHub API using Axios",
-          stargazers_count: 12,
-          language: "TypeScript",
-        },
-        {
-          id: 108,
-          name: "github-api-wrapper",
-          html_url: "https://github.com/username/github-api-wrapper",
-          visibility: "public",
-          description: "Custom wrapper around GitHub API using Axios",
-          stargazers_count: 12,
-          language: "TypeScript",
-        },
-      ]; */
-  // data = mockRepos;
 
   const handleCardClick = (userName: string, repoName: string) => {
     const url = PATH.PULL_REQUESTS.replace(':userName', userName).replace(':repoName', repoName)
