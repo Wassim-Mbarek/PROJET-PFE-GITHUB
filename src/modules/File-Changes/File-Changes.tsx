@@ -45,12 +45,12 @@ const FileChanges: React.FC = () => {
 
   const fileHtml = selectedDiff
     ? Diff2Html.html([selectedDiff], {
-      inputFormat: 'json',
-      outputFormat: 'side-by-side',
-      highlight: true,
-      drawFileList: false,
-      colorScheme: 'dark',
-    } as any)
+        inputFormat: 'json',
+        outputFormat: 'side-by-side',
+        highlight: true,
+        drawFileList: false,
+        colorScheme: 'dark',
+      } as any)
     : ''
 
   return (
@@ -77,8 +77,9 @@ const FileChanges: React.FC = () => {
             {files.map((file, index) => (
               <li
                 key={index}
-                className={`files-list__data-container${selectedFile === file.name ? '' : 'active'
-                  }`}
+                className={`files-list__data-container${
+                  selectedFile === file.name ? '' : 'active'
+                }`}
                 onClick={() => setSelectedFile(file.name)}
               >
                 <div className="files-list__data-container">
