@@ -13,6 +13,12 @@ interface CommitProps {
   pullNumber: number
 }
 
+export let currentCommitMessage = ''
+
+export const setCurrentCommitMessage = (msg: string) => {
+  currentCommitMessage = msg
+}
+
 export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber }) => {
   const { data, isLoading } = useQuery<Commit[], Error>(
     ['commits', userName, repoName, pullNumber],
@@ -41,7 +47,7 @@ export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber 
           <div
             key={commit.sha}
             className="commits-module__list"
-            onClick={() => handleCommitClick(commit.sha)}
+            onClick={() => {handleCommitClick(commit.sha), setCurrentCommitMessage(commit.commit?.message)}}
             style={{ cursor: 'pointer' }}
           >
             <img className="commits-module__list__commit-avatar" src={commitIcon} />

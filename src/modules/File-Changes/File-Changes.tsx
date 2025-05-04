@@ -10,6 +10,7 @@ import * as Diff2Html from 'diff2html'
 import './_File-Changes.scss'
 import ReviewButton from '../shared/components/Buttons/Review'
 import FolderEmpty from '../shared/components/FolderEmpty'
+import { currentCommitMessage } from '../Pull-Requests/Commits'
 
 const formatTwoDigits = (num: number) => num.toString().padStart(2, '0')
 
@@ -55,7 +56,7 @@ const FileChanges: React.FC = () => {
   return (
     <MainContainer
       linkProps={{
-        title: 'File Changes',
+        title: currentCommitMessage  || 'File Changes',
         links: [
           { href: PATH.REPOSITORIES, name: 'Repositories' },
           { href: '', name: 'Pull Requests' },
