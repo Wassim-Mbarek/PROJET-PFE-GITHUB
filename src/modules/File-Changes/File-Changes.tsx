@@ -44,14 +44,14 @@ const FileChanges: React.FC = () => {
   const selectedDiff = diffJson.find((file) => (file.newName || file.oldName) === selectedFile)
 
   const fileHtml = selectedDiff
-  ? Diff2Html.html([selectedDiff], {
+    ? Diff2Html.html([selectedDiff], {
       inputFormat: 'json',
       outputFormat: 'side-by-side',
       highlight: true,
       drawFileList: false,
       colorScheme: 'dark',
     } as any)
-  : ''
+    : ''
 
   return (
     <MainContainer
@@ -59,10 +59,13 @@ const FileChanges: React.FC = () => {
         title: currentCommitMessage || 'File Changes',
         links: [
           { href: PATH.REPOSITORIES, name: 'Repositories' },
-          { href: PATH.PULL_REQUESTS
-            .replace(':userName', userName!)
-            .replace(':repoName', repoName!)
-            , name: 'Pull Requests' },
+          {
+            href: PATH.PULL_REQUESTS.replace(':userName', userName!).replace(
+              ':repoName',
+              repoName!
+            ),
+            name: 'Pull Requests',
+          },
           { href: '', name: 'Commit' },
         ],
       }}
@@ -74,9 +77,8 @@ const FileChanges: React.FC = () => {
             {files.map((file, index) => (
               <li
                 key={index}
-                className={`files-list__data-container${
-                  selectedFile === file.name ? '' : 'active'
-                }`}
+                className={`files-list__data-container${selectedFile === file.name ? '' : 'active'
+                  }`}
                 onClick={() => setSelectedFile(file.name)}
               >
                 <div className="files-list__data-container">
