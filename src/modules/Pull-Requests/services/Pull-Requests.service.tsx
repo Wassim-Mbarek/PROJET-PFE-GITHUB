@@ -21,7 +21,7 @@ if (!githubToken) {
 const githubApi = axios.create({
   baseURL: 'https://api.github.com/',
   headers: {
-    Accept: 'application/vnd.github.v3+json',
+    Accept: 'application/vnd.github.v3.diff; charset=utf-8',
     Authorization: `Bearer ${githubToken}`,
   },
 })
@@ -81,6 +81,19 @@ export const getPullRequestCommits = async (
 
   const response = await githubApi.get<Commit[]>(endpoint)
   console.log('commits', response.data)
+
+  return response.data
+}
+
+// Get one commit details
+export const getOneCommit = async (user: string, repo: string, ref: string) => {
+  const endpoint = buildEndpoint(endpoints.getOneCommits, {
+    user,
+    repo,
+    ref,
+  })
+
+  const response = await githubApi.get(endpoint)
 
   return response.data
 }
