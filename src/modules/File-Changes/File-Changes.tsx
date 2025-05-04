@@ -56,7 +56,7 @@ const FileChanges: React.FC = () => {
   return (
     <MainContainer
       linkProps={{
-        title: currentCommitMessage  || 'File Changes',
+        title: currentCommitMessage || 'File Changes',
         links: [
           { href: PATH.REPOSITORIES, name: 'Repositories' },
           { href: '', name: 'Pull Requests' },

@@ -47,7 +47,9 @@ export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber 
           <div
             key={commit.sha}
             className="commits-module__list"
-            onClick={() => {handleCommitClick(commit.sha), setCurrentCommitMessage(commit.commit?.message)}}
+            onClick={() => {
+              handleCommitClick(commit.sha), setCurrentCommitMessage(commit.commit?.message)
+            }}
             style={{ cursor: 'pointer' }}
           >
             <img className="commits-module__list__commit-avatar" src={commitIcon} />
