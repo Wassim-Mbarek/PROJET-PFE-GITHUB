@@ -4,6 +4,8 @@ import LoadingScreen from '../shared/components/Loading'
 import './_Commits.scss'
 import { Commit, getPullRequestCommits } from './services/Pull-Requests.service'
 import * as dayjs from 'dayjs'
+import { PATH } from '../shared/routes/paths'
+import { useNavigate } from 'react-router-dom'
 
 interface CommitProps {
   userName: string
@@ -17,6 +19,16 @@ export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber 
     () => getPullRequestCommits(userName, repoName, pullNumber)
   )
 
+  const navigate = useNavigate()
+
+  const handleCommitClick = (sha: string) => {
+    const url = PATH.FILE_CHANGES.replace(':userName', userName)
+      .replace(':repoName', repoName)
+      .replace(':sha', sha)
+
+    navigate(url)
+  }
+
   if (isLoading) return <LoadingScreen size="s" />
 
   return (
@@ -26,7 +38,12 @@ export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber 
       </div>
       <ul className="commits-module__commits-container">
         {data?.map((commit) => (
-          <div key={commit.sha} className="commits-module__list">
+          <div
+            key={commit.sha}
+            className="commits-module__list"
+            onClick={() => handleCommitClick(commit.sha)}
+            style={{ cursor: 'pointer' }}
+          >
             <img className="commits-module__list__commit-avatar" src={commitIcon} />
             <p className="commits-module__list__commit-message">{commit.commit.message}</p>
             <div className="commits-module__list__commit-date">
@@ -38,3 +55,5 @@ export const Commits: React.FC<CommitProps> = ({ userName, repoName, pullNumber 
     </div>
   )
 }
+
+export default Commits
