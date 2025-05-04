@@ -1,0 +1,182 @@
+@use '../shared/assets/styles/abstracts/mixins' as *;
+
+.code-diff {
+  width: 98%;
+  overflow: auto;
+  position: absolute;
+  height: 210px;
+  border: 1px solid #ffffff16;
+  margin-left: 10px;
+  margin-top: 10px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__wrapper {
+    width: 100%;
+    animation: enter 0.3s ease-in-out;
+  }
+
+  .d2h-file-list-wrapper {
+    display: none;
+  }
+
+  * {
+    color: white;
+    line-height: 2;
+  }
+
+  .d2h-dark-color-scheme {
+    background: rgb(29, 29, 29) !important;
+  }
+
+  .d2h-del {
+    background-color: rgba(253, 0, 46, 0.5) !important;
+  }
+
+  .d2h-ins {
+    background-color: rgba(181, 255, 8, 0.5) !important;
+  }
+
+  .d2h-cntx {
+    background-color: rgba(70, 185, 242, 0.25) !important;
+  }
+}
+
+.file-changes-container {
+  display: flex;
+  width: 100%;
+}
+
+.files-list {
+  width: 22%;
+  margin-top: 25px;
+
+  .scorll-list {
+    height: 280px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__title {
+    width: 135px;
+    margin-top: -0.48px;
+    margin-left: 8.59px;
+    font-family: Nunito;
+    font-weight: 700;
+    font-size: 20.6px;
+    line-height: 30.96px;
+    letter-spacing: 0.52px;
+    vertical-align: middle;
+    color: #ffffff;
+  }
+
+  &__data-container {
+    height: 60px;
+    width: 310px;
+    top: 39.55px;
+    border-radius: 12px;
+    border-width: 1px;
+    background: #ffffff0d;
+    border: 1px solid #ffffff16;
+    box-shadow: -2px -2px 5px 2px #ffffff0c inset;
+    box-shadow: 2px 2px 5px 1px #ccdbe81a inset;
+    backdrop-filter: blur(0.20000000298023224px);
+    cursor: pointer;
+    display: inline-flex;
+    gap: 10px;
+
+    .active {
+      background-color: #ffffff0d;
+      @include GlassEffect();
+    }
+
+    &__name {
+      width: 210px;
+      font-family: Nunito;
+      font-weight: 600;
+      font-size: 13.8px;
+      line-height: 20.64px;
+      letter-spacing: 0.34px;
+      vertical-align: middle;
+      color: #ffffff;
+      margin-left: 15px;
+      margin-top: 17px;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: default;
+    }
+
+    &__action-number {
+      width: 26px;
+      height: 24px;
+      border-radius: 5.16px;
+      font-family: Nunito;
+      font-weight: 600;
+      font-size: 13.8px;
+      line-height: 20.64px;
+      letter-spacing: 0.34px;
+      color: #ffffff;
+      margin-top: 17px;
+      text-align: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .added {
+      background-color: #2dc653;
+    }
+
+    .deleted {
+      background-color: #ef233c;
+    }
+  }
+}
+
+.file-changes__details {
+  margin-left: 3%;
+  width: 75%;
+  min-height: 349px;
+
+  &__title {
+    width: 135px;
+    margin-top: -0.48px;
+    margin-left: 8.59px;
+    font-family: Nunito;
+    font-weight: 700;
+    font-size: 20.6px;
+    line-height: 30.96px;
+    letter-spacing: 0.52px;
+    vertical-align: middle;
+    color: #ffffff;
+  }
+
+  &__content {
+    @include GlassEffect();
+    width: 99%;
+    height: 319px;
+    display: flex;
+
+    &__commit {
+      margin-left: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__review-button {
+      height: 40px;
+      margin-top: 240px;
+      margin-right: 12px;
+    }
+  }
+}
