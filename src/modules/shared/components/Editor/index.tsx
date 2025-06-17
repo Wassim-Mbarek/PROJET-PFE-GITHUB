@@ -11,7 +11,7 @@ interface IFile {
 export default function Editor({ file, readyToUse }: IFile) {
   return (
     <div className="editor">
-            <HilightCode file={file} addLinesNumbers readyToUse={readyToUse}/>
+      <HilightCode file={file} addLinesNumbers readyToUse={readyToUse} />
     </div>
   )
 }

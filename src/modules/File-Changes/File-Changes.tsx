@@ -46,20 +46,18 @@ const FileChanges: React.FC = () => {
 
   const selectedDiff = diffJson.find((file) => (file.newName || file.oldName) === selectedFile)
 
-
   const fileHtml = selectedDiff
     ? Diff2Html.html([selectedDiff], {
-      inputFormat: 'json',
-      outputFormat: 'side-by-side',
-      highlight: true,
-      drawFileList: false,
-      colorScheme: 'dark',
-    } as any)
+        inputFormat: 'json',
+        outputFormat: 'side-by-side',
+        highlight: true,
+        drawFileList: false,
+        colorScheme: 'dark',
+      } as any)
     : ''
 
-
   function extractRawCode(diff: any): string {
-    if (!diff?.blocks) return '';
+    if (!diff?.blocks) return ''
 
     return diff.blocks
       .flatMap((block: any) =>
@@ -67,10 +65,10 @@ const FileChanges: React.FC = () => {
           .filter((line: any) => line.type === 'insert' || line.type === 'context')
           .map((line: any) => line.content.replace(/^[-+]/, ''))
       )
-      .join('\n');
+      .join('\n')
   }
 
-  const rawCode = selectedDiff ? extractRawCode(selectedDiff) : '';
+  const rawCode = selectedDiff ? extractRawCode(selectedDiff) : ''
 
   return (
     <MainContainer
@@ -89,25 +87,20 @@ const FileChanges: React.FC = () => {
         ],
       }}
     >
-
-
-
-
       <div className="file-changes-container">
         <div className="files-list">
           <div className="files-list__title"> Files: </div>
           <ul className="scorll-list">
             {files.map((file, index) => (
               <li
-
                 key={index}
-                className={`files-list__data-container${selectedFile === file.name ? '' : 'active'
-                  }`}
+                className={`files-list__data-container${
+                  selectedFile === file.name ? '' : 'active'
+                }`}
                 onClick={() => {
-                  setSelectedFile(file.name);
+                  setSelectedFile(file.name)
                 }}
               >
-
                 <div className="files-list__data-container">
                   <div className="files-list__data-container__name">{file.name}</div>
                   <div className="files-list__data-container__action-number deleted">
@@ -146,10 +139,7 @@ const FileChanges: React.FC = () => {
 
             {selectedFile && (
               <div className="file-changes__details__content__review-button">
-                <ReviewButton
-                  title="Review Changes"
-                  onClick={() => setIsModalVisible(true)}
-                />
+                <ReviewButton title="Review Changes" onClick={() => setIsModalVisible(true)} />
               </div>
             )}
           </div>

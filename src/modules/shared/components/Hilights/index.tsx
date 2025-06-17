@@ -2,12 +2,7 @@ import { Highlight, themes } from 'prism-react-renderer'
 import { useEffect, useState } from 'react'
 import FileExtensionIcon from './FileExtensionIcon'
 
-export default function HilightCode({
-  file,
-  readyToUse,
-  language,
-  addLinesNumbers,
-}: any) {
+export default function HilightCode({ file, readyToUse, language, addLinesNumbers }: any) {
   const [newFile, setNewFile] = useState<{ content: string } | null>(null)
   useEffect(() => setNewFile(file), [file])
   function getFileExtension(filename: string) {

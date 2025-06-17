@@ -13,7 +13,8 @@
   margin-left: 15px;
   margin-top: 15px;
   overflow: auto;
-  &:has(pre) , &:has(.code-diff) {
+  &:has(pre),
+  &:has(.code-diff) {
     align-items: end;
   }
   &:has(.stream-wrapper__text) {
