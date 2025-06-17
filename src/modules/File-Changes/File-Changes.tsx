@@ -30,6 +30,7 @@ const FileChanges: React.FC = () => {
       enabled: !!userName && !!repoName && !!sha,
     }
   )
+console.log('BOOT_API_KEY',import.meta.env.VITE_BOOT_API_KEY);
 
   const [selectedFile, setSelectedFile] = useState<string | null>(null)
   const [isModalVisible, setIsModalVisible] = useState(false)
