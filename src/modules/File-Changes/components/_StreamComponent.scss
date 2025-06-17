@@ -1,0 +1,60 @@
+@use '../../shared/assets/styles/abstracts/mixins' as *;
+
+.stream-component {
+    background-image: url("../../shared/assets/images/chat-space.jpeg");
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    width: 724px;
+    left: 24.79px;
+    border-top-left-radius: 17.2px;
+    border-top-right-radius: 17.2px;
+    &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.editor-container {
+    width: 690px;
+    min-height: 500px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-radius: 17.2px;
+    border-width: 1px;
+    background: #2D2D2DDD;
+    border: 1px solid #FFFFFF16;
+    box-shadow: -2px -2px 5px 2px #FFFFFF0C inset;
+    box-shadow: 2px 2px 5px 1px #CCDBE81A inset;
+    backdrop-filter: blur(0.20000000298023224px);
+    display: grid;
+    position: absolute;
+}
+
+.editor-header {
+    height: 50px;
+    display: flex;
+}
+
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border-width: 2px;
+    border: 2px solid #FFFFFF;
+    margin-top: 13px;
+    margin-left: 13px;
+}
+
+.chat-name {
+    width: 150px;
+    height: 20px;
+    margin-top: 23px;
+    margin-left: 20px;
+    font-family: Nunito;
+    font-weight: 800;
+    font-size: 13.8px;
+    line-height: 20.64px;
+    letter-spacing: 0.34px;
+    vertical-align: middle;
+    color: #FFFFFF;
+}

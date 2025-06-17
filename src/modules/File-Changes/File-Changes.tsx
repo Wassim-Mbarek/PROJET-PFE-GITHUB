@@ -11,6 +11,8 @@ import './_File-Changes.scss'
 import ReviewButton from '../shared/components/Buttons/Review'
 import FolderEmpty from '../shared/components/FolderEmpty'
 import { currentCommitMessage } from '../Pull-Requests/Commits'
+import { Modal } from 'antd'
+import StreamComponent from './components/StreamComponent/StreamComponent'
 
 const formatTwoDigits = (num: number) => num.toString().padStart(2, '0')
 
@@ -30,6 +32,7 @@ const FileChanges: React.FC = () => {
   )
 
   const [selectedFile, setSelectedFile] = useState<string | null>(null)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   if (isLoading) return <LoadingScreen />
 
@@ -43,15 +46,31 @@ const FileChanges: React.FC = () => {
 
   const selectedDiff = diffJson.find((file) => (file.newName || file.oldName) === selectedFile)
 
+
   const fileHtml = selectedDiff
     ? Diff2Html.html([selectedDiff], {
-        inputFormat: 'json',
-        outputFormat: 'side-by-side',
-        highlight: true,
-        drawFileList: false,
-        colorScheme: 'dark',
-      } as any)
+      inputFormat: 'json',
+      outputFormat: 'side-by-side',
+      highlight: true,
+      drawFileList: false,
+      colorScheme: 'dark',
+    } as any)
     : ''
+
+
+  function extractRawCode(diff: any): string {
+    if (!diff?.blocks) return '';
+
+    return diff.blocks
+      .flatMap((block: any) =>
+        block.lines
+          .filter((line: any) => line.type === 'insert' || line.type === 'context')
+          .map((line: any) => line.content.replace(/^[-+]/, ''))
+      )
+      .join('\n');
+  }
+
+  const rawCode = selectedDiff ? extractRawCode(selectedDiff) : '';
 
   return (
     <MainContainer
@@ -70,18 +89,25 @@ const FileChanges: React.FC = () => {
         ],
       }}
     >
+
+
+
+
       <div className="file-changes-container">
         <div className="files-list">
           <div className="files-list__title"> Files: </div>
           <ul className="scorll-list">
             {files.map((file, index) => (
               <li
+
                 key={index}
-                className={`files-list__data-container${
-                  selectedFile === file.name ? '' : 'active'
-                }`}
-                onClick={() => setSelectedFile(file.name)}
+                className={`files-list__data-container${selectedFile === file.name ? '' : 'active'
+                  }`}
+                onClick={() => {
+                  setSelectedFile(file.name);
+                }}
               >
+
                 <div className="files-list__data-container">
                   <div className="files-list__data-container__name">{file.name}</div>
                   <div className="files-list__data-container__action-number deleted">
@@ -96,6 +122,15 @@ const FileChanges: React.FC = () => {
               </li>
             ))}
           </ul>
+          <Modal
+            title="Code Review"
+            className="editor__modal"
+            open={isModalVisible}
+            onCancel={() => setIsModalVisible(false)}
+            footer={null}
+          >
+            <StreamComponent content={rawCode} />
+          </Modal>
         </div>
 
         <div className="file-changes__details">
@@ -113,10 +148,7 @@ const FileChanges: React.FC = () => {
               <div className="file-changes__details__content__review-button">
                 <ReviewButton
                   title="Review Changes"
-                  onClick={() => {
-                    console.log(`Reviewing file: ${selectedFile}`)
-                    // handle review logic here
-                  }}
+                  onClick={() => setIsModalVisible(true)}
                 />
               </div>
             )}
