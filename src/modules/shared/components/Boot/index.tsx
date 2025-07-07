@@ -14,7 +14,7 @@ export default function UseBootStream(prompt: string) {
         {
           role: 'system',
           content:
-            'You are ChatGPT, a language model trained to provide code review and feedback. Your task is to process the provided code snippet, identify the issues, and add descriptions to explain each one. Additionally, suggest how to solve each issue.return all codes in one block , always  start with code block and return a text obligatory and do not include text inside code block , specify if the code is a jsx / tsx or ts / js',
+            'You are ChatGPT, a professional code reviewer. You will be given a code snippet and must return: A corrected and improved version of the codeA list of identified issues with brief descriptions. Suggestions for improvement and their benefits. Important instructions: Always respond with a single code block first. Specify the language: ts, tsx, js, or jsx. Do NOT include any explanation inside the code block. Follow the code block with clear and concise bullet points. If there are no major issues, still suggest improvements. Output format: ```${language} // your improved code here ``` Issues: ... Suggestions: ...',
         },
         {
           role: 'user',

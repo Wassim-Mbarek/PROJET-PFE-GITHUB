@@ -1,61 +1,122 @@
 @use '../../shared/assets/styles/abstracts/mixins' as *;
 
-.stream-component {
+.stream-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 1rem 1rem 0 0;
   background-image: url('../../shared/assets/images/chat-space.jpeg');
   background-size: contain;
-  background-position: center;
-  height: 100%;
-  width: 724px;
-  left: 24.79px;
-  border-top-left-radius: 17.2px;
-  border-top-right-radius: 17.2px;
   &::-webkit-scrollbar {
-    display: none;
+    background: rgba(0, 0, 0, 0.976);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(64, 63, 63);
+    border-radius: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(226, 225, 225, 0.93);
+  }
+  &__button {
+    padding: 0.8rem;
+    width: 100%;
+    @include Flex(row, flex-end);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    background: rgba(92, 92, 92, 0.174);
+  }
+  &__text {
+    @include Flex(column, start, start);
+    width: 100%;
+    gap: 1rem;
+    font-size: 0.8rem;
+    white-space: pre-line;
+    color: #000000;
+    @include GlassEffect();
+    background: rgba(45, 45, 45, 0.867);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    &__user {
+      @include Flex();
+      gap: 1rem;
+    }
+    &__avatar {
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    &__name {
+      color: white;
+      font-weight: 800;
+    }
+    &__content {
+      color: white;
+    }
   }
 }
 
-.editor-container {
-  width: 690px;
-  min-height: 500px;
-  margin-top: 15px;
-  margin-left: 15px;
-  border-radius: 17.2px;
-  border-width: 1px;
-  background: #2d2d2ddd;
-  border: 1px solid #ffffff16;
-  box-shadow: -2px -2px 5px 2px #ffffff0c inset;
-  box-shadow: 2px 2px 5px 1px #ccdbe81a inset;
-  backdrop-filter: blur(0.20000000298023224px);
-  display: grid;
-  position: absolute;
-}
 
-.editor-header {
-  height: 50px;
-  display: flex;
-}
+// .stream-component {
 
-.chat-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  border-width: 2px;
-  border: 2px solid #ffffff;
-  margin-top: 13px;
-  margin-left: 13px;
-  object-fit: cover;
-}
+//   background-size: contain;
+//   background-position: center;
+//   height: 100%;
+//   width: 724px;
+//   left: 24.79px;
+//   border-top-left-radius: 17.2px;
+//   border-top-right-radius: 17.2px;
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+// }
 
-.chat-name {
-  width: 150px;
-  height: 20px;
-  margin-top: 23px;
-  margin-left: 20px;
-  font-family: Nunito;
-  font-weight: 800;
-  font-size: 13.8px;
-  line-height: 20.64px;
-  letter-spacing: 0.34px;
-  vertical-align: middle;
-  color: #ffffff;
-}
+// .editor-container {
+//   width: 690px;
+//   min-height: 500px;
+//   margin-top: 15px;
+//   margin-left: 15px;
+//   border-radius: 17.2px;
+//   border-width: 1px;
+//   background: #2d2d2ddd;
+//   border: 1px solid #ffffff16;
+//   box-shadow: -2px -2px 5px 2px #ffffff0c inset;
+//   box-shadow: 2px 2px 5px 1px #ccdbe81a inset;
+//   backdrop-filter: blur(0.20000000298023224px);
+//   display: grid;
+//   position: absolute;
+// }
+
+// .editor-header {
+//   height: 50px;
+//   display: flex;
+// }
+
+// .chat-avatar {
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 100%;
+//   border-width: 2px;
+//   border: 2px solid #ffffff;
+//   margin-top: 13px;
+//   margin-left: 13px;
+//   object-fit: cover;
+// }
+
+// .chat-name {
+//   width: 150px;
+//   height: 20px;
+//   margin-top: 23px;
+//   margin-left: 20px;
+//   font-family: Nunito;
+//   font-weight: 800;
+//   font-size: 13.8px;
+//   line-height: 20.64px;
+//   letter-spacing: 0.34px;
+//   vertical-align: middle;
+//   color: #ffffff;
+// }

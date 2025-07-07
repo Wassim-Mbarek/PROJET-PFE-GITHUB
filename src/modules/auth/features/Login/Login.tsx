@@ -2,6 +2,7 @@ import CardBalance from '../../../shared/components/Cards/Card-BALANCE/Card-bala
 import GithubIcon from '../../../shared/assets/icons/github'
 import { supabase } from '../../../shared/utils/supabase'
 import { PATH } from '../../../shared/routes/paths'
+import Canvas from '@src/modules/shared/components/Canvas/Canvas'
 
 const Login = () => {
   const location = window.location.origin
@@ -28,6 +29,7 @@ const Login = () => {
           </button>
         </div>
       </CardBalance>
+      <Canvas />
     </div>
   )
 }
